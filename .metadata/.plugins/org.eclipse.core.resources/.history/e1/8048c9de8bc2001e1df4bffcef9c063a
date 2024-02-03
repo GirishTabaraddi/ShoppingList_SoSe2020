@@ -1,0 +1,29 @@
+/*
+ * Food.h
+ *
+ *  Created on: 03-Feb-2024
+ *      Author: giris
+ */
+
+#ifndef FOOD_H_
+#define FOOD_H_
+
+#include "Item.h"
+
+class Food: public Item
+{
+private:
+	bool needsCooling;
+
+public:
+	Food(std::string name, std::string shop, std::time_t unitl, bool needsCooling);
+	virtual ~Food();
+	bool getNeedsCooling() const;
+	std::set<std::string>getNotes() const override;
+	virtual std::string toString() const override;
+	virtual void save(std::ostream& to) const override;
+	static Food* restore(std::string line) override;
+
+};
+
+#endif /* FOOD_H_ */

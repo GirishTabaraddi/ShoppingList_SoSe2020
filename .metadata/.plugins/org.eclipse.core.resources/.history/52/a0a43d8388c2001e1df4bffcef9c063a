@@ -1,0 +1,18 @@
+/*
+ * item.h
+ *
+ *  Created on: 03-Feb-2024
+ *      Author: giris
+ */
+
+#ifndef ITEM_H_
+#define ITEM_H_
+
+class item
+{
+public:
+	item();
+	virtual ~item();
+};
+
+#endif /* ITEM_H_ */

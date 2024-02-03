@@ -1,0 +1,20 @@
+/*
+ * item.cpp
+ *
+ *  Created on: 03-Feb-2024
+ *      Author: giris
+ */
+
+#include "Item.h"
+
+item::item()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+item::~item()
+{
+	// TODO Auto-generated destructor stub
+}
+

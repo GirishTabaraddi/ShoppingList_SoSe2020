@@ -1,0 +1,20 @@
+/*
+ * Food.cpp
+ *
+ *  Created on: 03-Feb-2024
+ *      Author: giris
+ */
+
+#include "Food.h"
+
+Food::Food()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+Food::~Food()
+{
+	// TODO Auto-generated destructor stub
+}
+

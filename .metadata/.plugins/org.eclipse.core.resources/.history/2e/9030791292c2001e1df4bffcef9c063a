@@ -1,0 +1,37 @@
+/*
+ * ShoppingList.cpp
+ *
+ *  Created on: 03-Feb-2024
+ *      Author: giris
+ */
+
+#include "ShoppingList.h"
+#include "Food.h"
+
+using namespace std;
+
+ShoppingList& ShoppingList::operator +=(Item *item)
+{
+	for(auto& pair: this->items)
+	{
+		map<string, vector<unique_ptr<Item>>>::iterator itr = this->items.find(item->getName());
+
+		if(itr != this->items.end())
+		{
+			pair.second.emplace_back(move(item));
+		}
+	}
+	return *this;
+}
+
+void ShoppingList::print(std::time_t until) const
+{
+}
+
+void ShoppingList::save(std::ostream &to) const
+{
+}
+
+void ShoppingList::load(std::istream &from)
+{
+}

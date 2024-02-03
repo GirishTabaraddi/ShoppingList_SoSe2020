@@ -1,0 +1,29 @@
+17:18:45 **** Clean-only build of configuration Debug for project ShoppingList ****
+rm -rf myCode/main.d myCode/Food.d myCode/Item.o myCode/ShoppingList.o myCode/ShoppingList.d myCode/Food.o ShoppingList.exe myCode/Item.d myCode/main.o 
+17:19:06 **** Rebuild of configuration Debug for project ShoppingList ****
+Info: Internal Builder is used for build
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -Wall -Werror=return-type -o "myCode\\Food.o" "..\\myCode\\Food.cpp" 
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -Wall -Werror=return-type -o "myCode\\Item.o" "..\\myCode\\Item.cpp" 
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -Wall -Werror=return-type -o "myCode\\main.o" "..\\myCode\\main.cpp" 
+..\myCode\main.cpp: In function 'int main()':
+..\myCode\main.cpp:60:18: error: redeclaration of 'std::ofstream out'
+   60 |         ofstream out("data1.txt");
+      |                  ^~~
+..\myCode\main.cpp:51:18: note: 'std::ofstream out' previously declared here
+   51 |         ofstream out("data.txt");
+      |                  ^~~
+17:19:21 **** Incremental Build of configuration Debug for project ShoppingList ****
+Info: Internal Builder is used for build
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -Wall -Werror=return-type -o "myCode\\ShoppingList.o" "..\\myCode\\ShoppingList.cpp" 
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -Wall -Werror=return-type -o "myCode\\main.o" "..\\myCode\\main.cpp" 
+g++ -o ShoppingList.exe "myCode\\Food.o" "myCode\\Item.o" "myCode\\ShoppingList.o" "myCode\\main.o" 
+Info: Nothing to build for ShoppingList
+17:43:48 **** Incremental Build of configuration Debug for project ShoppingList ****
+Info: Internal Builder is used for build
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -Wall -Werror=return-type -o "myCode\\ShoppingList.o" "..\\myCode\\ShoppingList.cpp" 
+g++ -o ShoppingList.exe "myCode\\Food.o" "myCode\\Item.o" "myCode\\ShoppingList.o" "myCode\\main.o" 
+Info: Nothing to build for ShoppingList
+17:44:12 **** Incremental Build of configuration Debug for project ShoppingList ****
+Info: Internal Builder is used for build
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -Wall -Werror=return-type -o "myCode\\Food.o" "..\\myCode\\Food.cpp" 
+g++ -o ShoppingList.exe "myCode\\Food.o" "myCode\\Item.o" "myCode\\ShoppingList.o" "myCode\\main.o" 

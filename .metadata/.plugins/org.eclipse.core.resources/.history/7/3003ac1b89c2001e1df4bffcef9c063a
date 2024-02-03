@@ -1,0 +1,28 @@
+/*
+ * Item.h
+ *
+ *  Created on: 03-Feb-2024
+ *      Author: giris
+ */
+
+#ifndef ITEM_H_
+#define ITEM_H_
+
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <iomanip>
+#include <set>
+
+class Item
+{
+private:
+	std::string name;
+	std::string shop;
+	std::time_t until;
+public:
+	item();
+	virtual ~item();
+};
+
+#endif /* ITEM_H_ */

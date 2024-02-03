@@ -1,0 +1,125 @@
+/*
+ * ShoppingList.cpp
+ *
+ *  Created on: 03-Feb-2024
+ *      Author: giris
+ */
+
+#include "ShoppingList.h"
+#include "Food.h"
+
+using namespace std;
+
+ShoppingList& ShoppingList::operator +=(Item *item)
+{
+	if(dynamic_cast<Item*>(item) != nullptr)
+	{
+		this->items[item->getShop()].emplace_back(move(unique_ptr<Item>(item)));
+	}
+	else
+	{
+		this->items[item->getShop()].emplace_back(move(unique_ptr<Food>(dynamic_cast<Food*>(item))));
+	}
+//	vector<unique_ptr<Item>> myVector;
+//
+//	for(auto& pair: this->items)
+//	{
+//		map<string, vector<unique_ptr<Item>>>::iterator itr = this->items.find(item->getShop());
+//
+//		if(itr != this->items.end())
+//		{
+//			pair.second.emplace_back(move(item));
+//		}
+//		else
+//		{
+//			myVector.emplace_back(move(item));
+//
+//			this->items[item->getShop()] = move(myVector);
+//		}
+//	}
+	return *this;
+}
+
+void ShoppingList::print(std::time_t until) const
+{
+	set<string> data;
+
+	cout << "Shopping List: " << endl;
+
+	for(auto&  pair : this->items)
+	{
+		cout << "* " << pair.first << ":" << endl;
+
+		for(const unique_ptr<Item>& itr : pair.second)
+		{
+			if(itr.get()->getUntil() == until)
+			{
+				cout << "- " << itr.get()->getName() << "(" << itr.get()->getShop() << ")";
+
+				if(dynamic_cast<Food*>(itr.get()) != nullptr)
+				{
+					if(dynamic_cast<Food*>(itr.get())->getNeedsCooling() == true)
+					{
+						cout << "[Keep cool!]";
+
+						data = dynamic_cast<Food*>(itr.get())->getNotes();
+					}
+					else
+					{
+						cout << " ";
+					}
+				}
+				cout << endl;
+			}
+		}
+	}
+
+	cout << "Notes:" << endl;
+	cout << "[1] ";
+
+	for(auto& str : data)
+	{
+		cout << str;
+	}
+	cout << endl;
+}
+
+void ShoppingList::save(std::ostream &to) const
+{
+	for(const pair<const string, vector<unique_ptr<Item>>>& pair : this->items)
+	{
+		for(const unique_ptr<Item>& itr : pair.second)
+		{
+			itr.get()->save(to);
+
+			to << endl;
+		}
+	}
+}
+
+void ShoppingList::load(std::istream &from)
+{
+	string read;
+
+	while(getline(from, read))
+	{
+		if(Item::restore(read) != nullptr)
+		{
+			Item* data = Item::restore(read);
+
+//			cout << "Name: " << data->getName() << " Shop: " << data->getShop()
+//					<< " until: " << data->getUntil() << endl;
+
+			this->items[data->getShop()].emplace_back(move(unique_ptr<Item>(data)));
+		}
+		else
+		{
+			Food* data = Food::restore(read);
+
+//			cout << "Name: " << data->getName() << " Shop: " << data->getShop()
+//					<< " until: " << data->getUntil() << "  cooling: " << data->getNeedsCooling() << endl;
+
+			this->items[data->getShop()].emplace_back(move(unique_ptr<Food>(data)));
+		}
+	}
+}

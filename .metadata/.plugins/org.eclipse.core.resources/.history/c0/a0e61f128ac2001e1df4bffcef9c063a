@@ -1,0 +1,24 @@
+/*
+ * Food.cpp
+ *
+ *  Created on: 03-Feb-2024
+ *      Author: giris
+ */
+
+#include "Food.h"
+
+using namespace std;
+
+Food::Food(std::string name, std::string shop, std::time_t unitl,
+		bool needsCooling) : Item(name, shop, until), needsCooling(needsCooling)
+{
+}
+
+Food::~Food()
+{
+}
+
+bool Food::getNeedsCooling() const
+{
+	return this->needsCooling;
+}

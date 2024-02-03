@@ -218,32 +218,32 @@ void ShoppingList::load(std::istream &from)
 ## File main.cpp
 
 
-// Main program
-int main (void) 
-{
-	ShoppingList list;
+// Main program  
 
-	time_t inTwoDays = time(nullptr) + 2 * 24 * 3600;
-	time_t inThreeDays = time(nullptr) + 3 * 24 * 3600;
-
-	list += new Item("Paper tissues", "Super market", inThreeDays);
-	list += new Food("Milk", "Super market", inTwoDays, true);
-	list += new Food("Rice", "Super market", inTwoDays, false);
-	list += new Food("Steak", "Butcher", inTwoDays, true);
-	list += new Item("Shampoo", "Drug store", inThreeDays);
-	list += new Item("Washing powder", "Drug store", inThreeDays);
-
-	list.print(inTwoDays);
-
-	ofstream out("data.txt");
-	list.save(out);
-	out.close();
-
-	ShoppingList reloaded;
-
-	ifstream in("data.txt");
-	reloaded.load(in);
-	reloaded.print(inThreeDays);
-
-	return 0;
-}
+ 	int main (void)  
+	{  
+	 	ShoppingList list;
+		time_t inTwoDays = time(nullptr) + 2 * 24 * 3600;
+		time_t inThreeDays = time(nullptr) + 3 * 24 * 3600;
+	
+		list += new Item("Paper tissues", "Super market", inThreeDays);
+		list += new Food("Milk", "Super market", inTwoDays, true);
+		list += new Food("Rice", "Super market", inTwoDays, false);
+		list += new Food("Steak", "Butcher", inTwoDays, true);
+		list += new Item("Shampoo", "Drug store", inThreeDays);
+		list += new Item("Washing powder", "Drug store", inThreeDays);
+	
+		list.print(inTwoDays);
+	
+		ofstream out("data.txt");
+		list.save(out);
+		out.close();
+	
+		ShoppingList reloaded;
+	
+		ifstream in("data.txt");
+		reloaded.load(in);
+		reloaded.print(inThreeDays);
+	
+		return 0;
+	}

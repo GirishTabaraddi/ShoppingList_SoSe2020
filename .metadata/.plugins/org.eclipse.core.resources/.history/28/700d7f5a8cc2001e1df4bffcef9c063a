@@ -1,0 +1,38 @@
+/*
+ * item.cpp
+ *
+ *  Created on: 03-Feb-2024
+ *      Author: giris
+ */
+
+#include "Item.h"
+
+using namespace std;
+
+Item::Item(std::string name, std::string shop, std::time_t until)
+: name(name), shop(shop), until(until)
+{
+}
+
+Item::~Item()
+{
+}
+
+std::string Item::getName() const
+{
+	return this->name;
+}
+
+std::string Item::getShop() const
+{
+	return this->shop;
+}
+
+std::time_t Item::getUntil() const
+{
+	return this->until;
+}
+
+std::string Item::toString() const
+{
+}

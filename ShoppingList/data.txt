@@ -1,0 +1,6 @@
+Food;Steak;Butcher;1707151454;1
+Item;Shampoo;Drug store;1707237854
+Item;Washing powder;Drug store;1707237854
+Item;Paper tissues;Super market;1707237854
+Food;Milk;Super market;1707151454;1
+Food;Rice;Super market;1707151454;0

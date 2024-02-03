@@ -1,0 +1,55 @@
+/*
+ * Food.cpp
+ *
+ *  Created on: 03-Feb-2024
+ *      Author: giris
+ */
+
+#include "Food.h"
+
+using namespace std;
+
+Food::Food(std::string name, std::string shop, std::time_t unitl,
+		bool needsCooling) : Item(name, shop, until), needsCooling(needsCooling)
+{
+}
+
+Food::~Food()
+{
+}
+
+bool Food::getNeedsCooling() const
+{
+	return this->needsCooling;
+}
+
+std::set<std::string> Food::getNotes() const
+{
+	if(needsCooling == false)
+	{
+		return set<string>();
+	}
+
+	set<string> result;
+
+	result.insert("one or more items require cooling");
+	return result;
+}
+
+std::string Food::toString() const
+{
+	string itemString = Item::toString();
+
+	string foodString;
+
+	if(needsCooling == true)
+	{
+		foodString = itemString + "[Keep cool!]";
+	}
+
+	return foodString;
+}
+
+void Food::save(std::ostream &to) const
+{
+}

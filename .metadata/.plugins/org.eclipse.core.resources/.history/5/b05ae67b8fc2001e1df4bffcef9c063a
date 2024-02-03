@@ -1,0 +1,18 @@
+/*
+ * ShoppingList.h
+ *
+ *  Created on: 03-Feb-2024
+ *      Author: giris
+ */
+
+#ifndef SHOPPINGLIST_H_
+#define SHOPPINGLIST_H_
+
+class ShoppingList
+{
+public:
+	ShoppingList();
+	virtual ~ShoppingList();
+};
+
+#endif /* SHOPPINGLIST_H_ */

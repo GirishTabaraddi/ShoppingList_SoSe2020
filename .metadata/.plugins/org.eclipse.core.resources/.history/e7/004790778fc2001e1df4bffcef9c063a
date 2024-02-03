@@ -1,0 +1,35 @@
+// Standard (system) header files
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+// Add your project's header files here
+#include "Food.h"
+
+string splitAt(string& remainder, char separator)
+{
+	auto pos = remainder.find(separator);
+
+	string result;
+
+	if(pos != string::npos)
+	{
+		result = remainder.substr(0, pos);
+		remainder = remainder.substr(pos+1);
+	}
+	else
+	{
+		result = remainder;
+		remainder.clear();
+	}
+
+	return result;
+}
+// Main program
+int main ()
+{
+	cout << "ShoppingList started." << endl << endl;
+
+	return 0;
+}

@@ -1,0 +1,20 @@
+/*
+ * Food.h
+ *
+ *  Created on: 03-Feb-2024
+ *      Author: giris
+ */
+
+#ifndef FOOD_H_
+#define FOOD_H_
+
+#include "Item.h"
+
+class Food: public Item
+{
+public:
+	Food();
+	virtual ~Food();
+};
+
+#endif /* FOOD_H_ */
